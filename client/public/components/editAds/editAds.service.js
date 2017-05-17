@@ -18,6 +18,17 @@
       }
     }
 
+    this.editAd = function(id, ad) {
+      return $http.patch(`/api/classifieds/${id}`, ad).then(success, failure)
+
+      function success(response) {
+        return response.data
+      }
+
+      function failure(err) {
+        return $q.reject(err)
+      }
+    }
 
 }
 

@@ -1,5 +1,4 @@
-<form novalidate name="$ctrl.editForm" class="form" ng-submit="$ctrl.editForm.$valid && $ctrl.editPost(id)">
-<!-- need to update addItem funcitonality -->
+<form novalidate name="$ctrl.editForm" class="form" ng-submit="$ctrl.editForm.$valid && $ctrl.editPost()">
     <div class="form-group" ng-class="{ 'has-error' : $ctrl.editForm.title.$invalid && $ctrl.editForm.title.$touched }">
         <label class="control-label" for="title">Title</label>
         <input name="title" id="title" class="form-control" ng-model="$ctrl.ad.title" required type="text">

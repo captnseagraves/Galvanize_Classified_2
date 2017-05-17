@@ -4,15 +4,16 @@
   angular.module('app')
   .component('editAds', {
     controller: controller,
-    templateUrl: './components/ads/editAds.html'
+    templateUrl: './components/editAds/editAds.html'
   })
 
-  controller.inject = ['editAdsService']
-  function controller(editAdsService) {
+  controller.inject = ['editAdsService', '$stateParams', '$state']
+  function controller(editAdsService, $stateParams, $state) {
     const vm = this
 
     vm.$onInit = function() {
         let id = $stateParams.id
+        console.log(id);
             editAdsService.getAd(id)
               .then((result) => {
                 vm.ad = result
@@ -21,8 +22,8 @@
 
     vm.editPost = function() {
         let id = $stateParams.id
-        editService.editPost(id, vm.post).then(result => {
-          $state.go('post')
+        editAdsService.editAd(id, vm.ad).then(result => {
+          $state.go('ads')
         })
 
     }
